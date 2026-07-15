@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabiTrack - Pro Dashboard</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">HabiTrack</div>
+        <div class="nav-controls">
+            <button id="themeToggle" class="icon-btn">
+                <i class="fas fa-sun" id="themeIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="quote-container">
+        <div class="quote-track" id="quoteTrack">
+            </div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <div class="panel manage-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-tasks"></i> Daily Goals</h3>
+            </div>
+            
+            <div class="action-grid">
+                <div class="card add-card" id="triggerAddModal">
+                    <div class="icon-box"><i class="fas fa-plus"></i></div>
+                    <h4>Add New</h4>
+                    <p>Start a new habit</p>
+                </div>
+            </div>
+
+            <div class="habit-list-container">
+                <h4>Your Active Habits</h4>
+                <ul id="habitList"></ul>
+                <p id="emptyState" class="empty-msg">No habits added yet. Let's start!</p>
+            </div>
+        </div>
+
+        <div class="panel track-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-chart-pie"></i> Visual Analytics</h3>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="habitChart"></canvas>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span id="totalCount">0</span>
+                    <p>Total Habits</p>
+                </div>
+                <div class="stat-box">
+                    <span id="completionRate">0%</span>
+                    <p>Today's Success</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="calendarPopup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>New Habit</h2>
+                <button class="close-btn" id="closePopupBtn">&times;</button>
+            </div>
+            <div class="input-group">
+                <input type="text" id="habitInput" placeholder="Enter habit name...">
+            </div>
+            <div class="date-selector">
+                <label>Start Date:</label>
+                <div class="select-row">
+                    <select id="monthSelect"></select>
+                    <select id="daySelect"></select>
+                    <select id="yearSelect"></select>
+                </div>
+            </div>
+            <div class="reminder-group">
+                <label><i class="far fa-clock"></i> Reminder:</label>
+                <input type="time" id="reminderTime">
+            </div>
+            <button class="btn-primary" id="saveDateBtn">Start Habit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
